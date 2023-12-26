@@ -1,0 +1,40 @@
+<h1 class="text-success text-center">Đăng Ký</h1>
+<div class="container mt-5">
+     <div class="row justify-content-center">
+          <div class="col-md-6">
+               <div class="card">
+                    <div class="card-body">
+                         <form #registerForm="ngForm" id="registrationForm" action="">
+                              <div class="form-group">
+                                   <label for="username"> Tên người dùng </label>
+                                   <input name="username" [(ngModel)]="username" type="text" required
+                                        (input)="onUserNameChange()" class="form-control" id="username"
+                                        placeholder="Tên người dùng" />
+                              </div>
+                              <div class="form-group mt-2">
+                                   <label for="email"> Email </label>
+                                   <input [(ngModel)]="email" name="email" type="email" class="form-control" id="email"
+                                        placeholder="Email" required />
+                              </div>
+                              <div class="form-group mt-2">
+                                   <label for="password"> Mật Khẩu </label>
+                                   <input [(ngModel)]="password" name="password" type="password" class="form-control"
+                                        (focus)="registerForm.form.markAllAsTouched()" id="password"
+                                        placeholder="Mật Khẩu" required />
+                                   <p *ngIf="password.length < 6 && registerForm.form.touched" class="text-danger">
+                                        Mật khẩu phải có ít nhất 6 ký tự
+                                   </p>
+                              </div>
+                              <button (click)="register()" type="button" class="btn btn-success login-button mt-3">
+                                   Đăng ký
+                              </button>
+                              <p class="text-center">
+                                   Bạn đã có tài khoản?
+                                   <a routerLink="/login" class="register-link">Đăng Nhập</a>
+                              </p>
+                         </form>
+                    </div>
+               </div>
+          </div>
+     </div>
+</div>
