@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RegisterDto } from '../../dtos/registerDto';
+import { RegisterDto } from '../../dtos/user/register.dto';
 
 @Component({
   selector: 'app-register',
@@ -32,9 +32,6 @@ export class RegisterComponent {
     //inject
   }
 
-  onUserNameChange() {
-    console.log('ok: ');
-  }
 
   register() {
     const registerDTO : RegisterDto = {
@@ -62,8 +59,5 @@ export class RegisterComponent {
       }
         }
     );
-
-  
-        
   }
 }
