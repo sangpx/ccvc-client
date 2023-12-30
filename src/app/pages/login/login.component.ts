@@ -1,3 +1,4 @@
+import { routes } from './../../app.routes';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -25,9 +26,9 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
 
   constructor(
-    private router: Router,
     private userService: UserService,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private router: Router
   ) {
     this.username = '';
     this.password = '';
@@ -58,8 +59,7 @@ export class LoginComponent implements OnInit {
         this.isLoggedIn = true;
         this.roles = this.tokenService.getUser().roles;
         this.reloadPage();
-
-        // this.router.navigate(['/']);
+        // this.router.navigate(['/admin']); 
       },
       complete: () => {
         // debugger

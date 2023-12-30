@@ -1,0 +1,80 @@
+<div class="col-md-6 offset-md-3">
+  <h3 class="mt-5">Tạo mới Nhân Viên</h3>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label> Mã Nhân Viên</label>
+      <input
+        type="text"
+        class="form-control"
+        id="employeeCode"
+        [(ngModel)]="employeeDto.employeeCode"
+        name="employeeCode"
+      />
+    </div>
+
+    <div class="form-group">
+      <label> Tên Nhân Viên</label>
+      <input
+        type="text"
+        class="form-control"
+        id="employeeName"
+        [(ngModel)]="employeeDto.employeeName"
+        name="employeeName"
+      />
+    </div>
+    <div class="form-group">
+      <label> Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        [(ngModel)]="employeeDto.email"
+        name="email"
+      />
+    </div>
+    <div class="form-group">
+      <label> Địa Chỉ</label>
+      <input
+        type="text"
+        class="form-control"
+        id="address"
+        [(ngModel)]="employeeDto.address"
+        name="address"
+      />
+    </div>
+    <div class="form-group">
+      <label> Ngày Sinh</label>
+      <input
+        type="date"
+        class="form-control"
+        id="dateOfBirth"
+        [(ngModel)]="employeeDto.dateOfBirth"
+        name="dateOfBirth"
+      />
+    </div>
+    <div class="form-group">
+      <label> Chức Vụ</label>
+      <input
+        type="text"
+        class="form-control"
+        id="careerTitle"
+        [(ngModel)]="employeeDto.careerTitle"
+        name="careerTitle"
+      />
+    </div>
+    <div class="form-group">
+      <label> Phòng Ban</label>
+      <select
+        [(ngModel)]="selectedDepartment"
+        class="form-control access-right"
+      >
+        <option
+          *ngFor="let department of departmentDto"
+          [ngValue]="department"
+        ></option>
+      </select>
+    </div>
+
+    <button class="btn btn-success" type="submit">Tạo mới</button>
+  </form>
+</div>

@@ -4,6 +4,7 @@ import {
   HTTP_INTERCEPTORS,
   provideHttpClient,
   withFetch,
+  withInterceptors,
 } from '@angular/common/http';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
@@ -11,9 +12,10 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    // provideHttpClient(withInterceptors([TokenInterceptor])),
     provideHttpClient(withFetch()),
     provideRouter(routes),
     provideClientHydration(),
   ],
 };
+

@@ -20,7 +20,6 @@ export class HomeComponent {
       },
       error: (err) => {
        console.log('error', err);
-       
       },
     });
   }

@@ -1,12 +1,15 @@
 import {
-  HttpInterceptor,
   HttpRequest,
-  HttpHandler,
   HttpEvent,
+  HttpHandlerFn,
+  HttpInterceptor,
+  HttpHandler,
+  HTTP_INTERCEPTORS,
 } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TokenService } from '../_services/token.service';
+
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -21,10 +24,15 @@ export class TokenInterceptor implements HttpInterceptor {
       req = req.clone({
         setHeaders: {
           Authorization: `Bearer ${token}`,
-        },
+        }
       });
     }
-
     return next.handle(req);
   }
 }
+
+export const httpInterceptorProviders = [
+  { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+];
+
+
